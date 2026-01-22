@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ground Control | Aesthetic Showcase</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#F4C430',
+                        dark: '#050505', 
+                        glass: 'rgba(255, 255, 255, 0.03)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1.5s ease-out forwards',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar to match portfolio */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F4C430; }
+
+        .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
+        .marquee-content { display: inline-block; }
+        
+        /* Utility for delay */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-500 { animation-delay: 500ms; }
+    </style>
+</head>
+<body class="bg-dark text-white font-body selection:bg-gold selection:text-black antialiased overflow-x-hidden">
+
+    <div class="fixed inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <div class="font-heading font-bold text-[9vw] md:text-[10vw] text-white/5 whitespace-nowrap tracking-tighter">
+            ELEGANCE
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/5 opacity-0 animate-fade-in-up delay-100">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="text-xs tracking-[0.3em] uppercase text-gold font-bold font-heading">
+                Ground Control
+            </div>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-white/40">
+                Est. 2026
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 z-10">
+        
+        <div class="relative z-10">
+            <p class="text-gold text-xs md:text-sm tracking-[0.5em] uppercase mb-6 opacity-0 animate-fade-in-up delay-300">
+                Natural Odor Neutralizer
+            </p>
+            
+            <h1 class="font-heading text-5xl md:text-8xl mb-8 leading-tight opacity-0 animate-fade-in-up delay-500 drop-shadow-2xl">
+                Ground <br> <span class="text-white/30">Control</span>
+            </h1>
+            
+            <p class="text-neutral-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-12 opacity-0 animate-fade-in-up delay-700 font-light">
+                Ground Control is an eco-friendly, chemical-free deodorizer made from recycled coffee grounds. Packed in a reusable pouch, it naturally neutralizes odors in small spaces while promoting sustainability and healthier living.
+            </p>
+            
+            <div class="opacity-0 animate-fade-in-up delay-700">
+                <a href="#showcase" class="inline-block border border-gold text-gold px-12 py-4 text-xs tracking-[0.3em] hover:bg-gold hover:text-black transition duration-500 uppercase font-bold">
+                    Explore
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-white/5 text-gold py-4 border-y border-white/10 overflow-hidden marquee-container z-20 relative backdrop-blur-sm">
+        <div class="marquee-content animate-marquee font-heading text-xs font-bold tracking-[0.3em] uppercase">
+             // ORGANIC MATERIALS // UPCYCLED COFFEE // HAND TIED // SUSTAINABLE LUXURY // ODOR ELIMINATION // ORGANIC MATERIALS // UPCYCLED COFFEE // HAND TIED // SUSTAINABLE LUXURY // ODOR ELIMINATION
+        </div>
+    </div>
+
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        
+        <div class="reveal-on-scroll grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-40">
+            <div class="relative group slider-container select-none">
+                <div class="border border-gold/20 p-2 transition-colors duration-500 group-hover:border-gold/60">
+                    <div class="relative overflow-hidden bg-void aspect-[4/5]">
+                        <div class="slider-track flex h-full transition-transform duration-700 ease-out" data-index="0">
+                            <img src="IMG_2985.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                            <img src="IMG_2994.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                            <img src="1.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                        </div>
+                        
+                        <button onclick="moveSlide(this, -1)" class="absolute left-4 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition duration-300 hover:scale-125 z-10">❮</button>
+                        <button onclick="moveSlide(this, 1)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition duration-300 hover:scale-125 z-10">❯</button>
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 text-gold font-serif text-6xl opacity-20">01</div>
+            </div>
+            
+            <div class="md:pl-12 text-center md:text-left">
+                <h3 class="text-3xl font-serif text-white uppercase mb-4 tracking-widest">Mission</h3>
+                <p class="text-burlap/60 leading-loose font-light mb-8">
+                    To provide a safe, chemical-free, and sustainable deodorizing solution by transforming recycled coffee grounds into an eco-friendly product that promotes healthier and cleaner living spaces.
+                </p>
+                
+                <div class="relative w-full aspect-video border border-white/5 bg-void overflow-hidden group">
+                    <video class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700" autoplay loop muted playsinline>
+                        <source src="atmosphere_clip.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute bottom-2 left-2 text-[10px] text-gold tracking-widest uppercase bg-black/50 px-2 py-1">
+                        Live Demo
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal-on-scroll grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-40 md:flex-row-reverse">
+            <div class="md:order-2 relative group slider-container select-none">
+                <div class="border border-gold/20 p-2 transition-colors duration-500 group-hover:border-gold/60">
+                    <div class="relative overflow-hidden bg-void aspect-[4/5]">
+                        <div class="slider-track flex h-full transition-transform duration-700 ease-out" data-index="0">
+                            <img src="IMG_2996.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                            <img src="IMG_2998.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                            <img src="2.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                        </div>
+                        <button onclick="moveSlide(this, -1)" class="absolute left-4 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition duration-300 hover:scale-125 z-10">❮</button>
+                        <button onclick="moveSlide(this, 1)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition duration-300 hover:scale-125 z-10">❯</button>
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -left-6 text-gold font-serif text-6xl opacity-20">02</div>
+            </div>
+            
+            <div class="md:order-1 md:pr-12 text-center md:text-right">
+                <h3 class="text-3xl font-serif text-white uppercase mb-4 tracking-widest">Vision</h3>
+                <p class="text-burlap/60 leading-loose font-light mb-8">
+                    To become a leading natural deodorizer brand that supports zero-waste living and inspires communities to choose sustainable alternatives for everyday needs.
+                </p>
+                <div class="relative w-full aspect-video border border-white/5 bg-void overflow-hidden group ml-auto">
+                    <video class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700" autoplay loop muted playsinline>
+                        <source src="texture_clip.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal-on-scroll grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-20">
+            <div class="relative group slider-container select-none">
+                <div class="border border-gold/20 p-2 transition-colors duration-500 group-hover:border-gold/60">
+                    <div class="relative overflow-hidden bg-void aspect-[4/5]">
+                        <div class="slider-track flex h-full transition-transform duration-700 ease-out" data-index="0">
+                            <img src="IMG_3010.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                            <img src="IMG_3005.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                            <img src="3.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
+                        </div>
+                        <button onclick="moveSlide(this, -1)" class="absolute left-4 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition duration-300 hover:scale-125 z-10">❮</button>
+                        <button onclick="moveSlide(this, 1)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition duration-300 hover:scale-125 z-10">❯</button>
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 text-gold font-serif text-6xl opacity-20">03</div>
+            </div>
+            
+            <div class="md:pl-12 text-center md:text-left">
+                <h3 class="text-3xl font-serif text-white uppercase mb-4 tracking-widest">Problem & Solution</h3>
+                <p class="text-burlap/60 leading-loose font-light mb-8">
+                    Many deodorizing products contain harmful chemicals that can affect human health, pets, and the environment. At the same time, large amounts of used coffee grounds are wasted daily, contributing to environmental pollution.
+                </p>
+                <p class="text-burlap/60 leading-loose font-light mb-8">
+                     Ground Control upcycles used coffee grounds into a natural, chemical-free deodorizer that effectively neutralizes odors while reducing waste and supporting sustainable consumption.
+                </p>
+                <div class="relative w-full aspect-video border border-white/5 bg-void overflow-hidden group">
+                    <video class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700" autoplay loop muted playsinline>
+                        <source src="bundle_clip.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/10 bg-dark z-10 relative">
+        <div class="inline-block p-1 border border-gold/30 rounded-full mb-8 hover:scale-110 transition duration-500">
+            <img src="logo.png" alt="Logo" class="w-12 h-12 rounded-full grayscale hover:grayscale-0 transition duration-500">
+        </div>
+        <p class="text-neutral-600 text-[10px] tracking-[0.3em] uppercase">
+            © 2026 Ground Control Philippines.
+        </p>
+    </footer>
+
+
+    <script>
+    function moveSlide(button, direction) {
+        // 1. Find the specific slider user clicked on
+        const container = button.closest('.slider-container');
+        const track = container.querySelector('.slider-track');
+        const slides = track.children;
+        const totalSlides = slides.length;
+
+        // 2. Get current position
+        let currentIndex = parseInt(track.dataset.index || 0);
+
+        // 3. Calculate new position (Loop around if at end)
+        currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+
+        // 4. Slide it!
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // 5. Save new position
+        track.dataset.index = currentIndex;
+    }
+</script>
+</body>
+</html>
