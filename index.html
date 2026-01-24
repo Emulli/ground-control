@@ -41,7 +41,6 @@
         }
     </script>
     <style>
-        /* Custom Scrollbar to match portfolio */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #050505; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
@@ -50,10 +49,16 @@
         .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
         .marquee-content { display: inline-block; }
         
-        /* Utility for delay */
         .delay-100 { animation-delay: 100ms; }
         .delay-300 { animation-delay: 300ms; }
         .delay-500 { animation-delay: 500ms; }
+        
+        /* Number Input Styling */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
     </style>
 </head>
 <body class="bg-dark text-white font-body selection:bg-gold selection:text-black antialiased overflow-x-hidden">
@@ -69,8 +74,15 @@
             <div class="text-xs tracking-[0.3em] uppercase text-gold font-bold font-heading">
                 Ground Control
             </div>
-            <div class="text-[10px] tracking-[0.2em] uppercase text-white/40">
-                Est. 2026
+            
+            <div class="flex items-center gap-6">
+                <div class="hidden md:block text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Est. 2026
+                </div>
+                <button onclick="openShop()" class="flex items-center gap-2 text-xs font-bold text-white hover:text-gold transition tracking-widest border border-white/20 px-4 py-2 hover:border-gold">
+                    <span>SHOP</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -90,9 +102,12 @@
                 Ground Control is an eco-friendly, chemical-free deodorizer made from recycled coffee grounds. Packed in a reusable pouch, it naturally neutralizes odors in small spaces while promoting sustainability and healthier living.
             </p>
             
-            <div class="opacity-0 animate-fade-in-up delay-700">
+            <div class="opacity-0 animate-fade-in-up delay-700 flex flex-col md:flex-row gap-4 justify-center">
                 <button onclick="openModal()" class="inline-block border border-gold text-gold px-12 py-4 text-xs tracking-[0.3em] hover:bg-gold hover:text-black transition duration-500 uppercase font-bold cursor-pointer">
                     Explore
+                </button>
+                <button onclick="openShop()" class="inline-block bg-gold text-black px-12 py-4 text-xs tracking-[0.3em] hover:bg-white transition duration-500 uppercase font-bold cursor-pointer">
+                    Pre-Order
                 </button>
             </div>
         </div>
@@ -115,7 +130,6 @@
                             <img src="IMG_2994.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
                             <img src="1.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 shrink-0">
                         </div>
-                        
                         <button onclick="moveSlide(this, -1)" class="absolute left-4 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition duration-300 hover:scale-125 z-10">❮</button>
                         <button onclick="moveSlide(this, 1)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gold text-2xl opacity-0 group-hover:opacity-100 transition duration-300 hover:scale-125 z-10">❯</button>
                     </div>
@@ -128,7 +142,6 @@
                 <p class="text-burlap/60 leading-loose font-light mb-8">
                     To provide a safe, chemical-free, and sustainable deodorizing solution by transforming recycled coffee grounds into an eco-friendly product that promotes healthier and cleaner living spaces.
                 </p>
-                
                 <div class="relative w-full aspect-video border border-white/5 bg-void overflow-hidden group">
                     <video class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700" autoplay loop muted playsinline>
                         <source src="atmosphere_clip.mp4" type="video/mp4">
@@ -185,10 +198,7 @@
             <div class="md:pl-12 text-center md:text-left">
                 <h3 class="text-3xl font-serif text-white uppercase mb-4 tracking-widest">Problem & Solution</h3>
                 <p class="text-burlap/60 leading-loose font-light mb-8">
-                    Many deodorizing products contain harmful chemicals that can affect human health, pets, and the environment. At the same time, large amounts of used coffee grounds are wasted daily, contributing to environmental pollution.
-                </p>
-                <p class="text-burlap/60 leading-loose font-light mb-8">
-                     Ground Control upcycles used coffee grounds into a natural, chemical-free deodorizer that effectively neutralizes odors while reducing waste and supporting sustainable consumption.
+                    Many deodorizing products contain harmful chemicals. Ground Control upcycles used coffee grounds into a natural, chemical-free deodorizer that effectively neutralizes odors while reducing waste.
                 </p>
                 <div class="relative w-full aspect-video border border-white/5 bg-void overflow-hidden group">
                     <video class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700" autoplay loop muted playsinline>
@@ -201,7 +211,6 @@
     </section>
 
     <footer class="py-20 text-center border-t border-white/10 bg-dark z-10 relative">
-        
         <div class="inline-block p-1 border border-gold/30 rounded-full mb-10 hover:scale-110 transition duration-500">
             <img src="logo.png" alt="Logo" class="w-12 h-12 rounded-full grayscale hover:grayscale-0 transition duration-500">
         </div>
@@ -210,7 +219,6 @@
             <h3 class="font-heading text-gold text-[10px] tracking-[0.3em] uppercase mb-6 opacity-50">
                 Contact Us
             </h3>
-            
             <div class="flex flex-col gap-3">
                 <a href="mailto:groundcontroldeodorizer@gmail.com" class="text-neutral-400 text-xs tracking-[0.1em] hover:text-gold transition duration-300 font-mono">
                     groundcontroldeodorizer@gmail.com
@@ -220,114 +228,152 @@
                 </a>
             </div>
         </div>
-
         <p class="text-neutral-700 text-[10px] tracking-[0.3em] uppercase">
             © 2026 Ground Control Philippines.
         </p>
     </footer>
 
     <div id="productModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-500 flex items-center justify-center p-4">
-    
-    <div onclick="closeModal()" class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
-
-    <div class="relative z-10 w-full max-w-xl bg-[#0f1014] border border-gold/30 shadow-[0_0_50px_rgba(244,196,48,0.1)] transform scale-95 transition-transform duration-500 rounded-lg overflow-hidden" id="modalContent">
-        
-        <div class="flex justify-between items-start p-6 border-b border-white/10 bg-[#0f1014]">
-            <div>
-                <div class="text-[10px] text-gold tracking-[0.3em] uppercase mb-1">Technical Specifications</div>
-                <h2 class="font-heading text-2xl text-white">Project: Ground Control</h2>
+        <div onclick="closeModal()" class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
+        <div class="relative z-10 w-full max-w-xl bg-[#0f1014] border border-gold/30 shadow-[0_0_50px_rgba(244,196,48,0.1)] transform scale-95 transition-transform duration-500 rounded-lg overflow-hidden" id="modalContent">
+            <div class="flex justify-between items-start p-6 border-b border-white/10 bg-[#0f1014]">
+                <div>
+                    <div class="text-[10px] text-gold tracking-[0.3em] uppercase mb-1">Technical Specifications</div>
+                    <h2 class="font-heading text-2xl text-white">Project: Ground Control</h2>
+                </div>
+                <button onclick="closeModal()" class="text-white/50 hover:text-gold transition text-xl p-1 leading-none">&times;</button>
             </div>
-            <button onclick="closeModal()" class="text-white/50 hover:text-gold transition text-xl p-1 leading-none">&times;</button>
+            <div class="p-6 space-y-6 max-h-[50vh] overflow-y-auto custom-scrollbar bg-[#0f1014]">
+                <div>
+                    <h3 class="font-heading text-base text-gold mb-1">Target Sectors</h3>
+                    <p class="font-body text-neutral-400 text-sm leading-relaxed">Ground Control is engineered for small enclosed biomes. Effective in residential closets, shoe racks, automotive interiors, sanitary spaces (bathrooms), and office storage units.</p>
+                </div>
+                <div>
+                    <h3 class="font-heading text-base text-gold mb-1">Operational Lifespan</h3>
+                    <p class="font-body text-neutral-400 text-sm leading-relaxed">Each unit maintains peak efficacy for <strong class="text-white">2–4 weeks</strong> depending on atmospheric density and odor intensity.</p>
+                </div>
+                <div>
+                    <h3 class="font-heading text-base text-gold mb-1">Deployment Protocol</h3>
+                    <p class="font-body text-neutral-400 text-sm leading-relaxed">1. Remove from seal.<br>2. Place in target quadrant.<br>3. Allow passive absorption.<br>4. Refresh unit after effective period expires.</p>
+                </div>
+            </div>
+            <div class="p-6 border-t border-white/10 flex justify-between items-center bg-[#0f1014]">
+                <div class="text-[10px] text-neutral-600 font-mono">STATUS: PRE-LAUNCH</div>
+                <button onclick="closeModal()" class="text-xs text-gold border border-gold/30 px-6 py-2 hover:bg-gold hover:text-black transition uppercase tracking-widest">Acknowledge</button>
+            </div>
         </div>
-
-        <div class="p-6 space-y-6 max-h-[50vh] overflow-y-auto custom-scrollbar bg-[#0f1014]">
-            
-            <div>
-                <h3 class="font-heading text-base text-gold mb-1">Target Sectors</h3>
-                <p class="font-body text-neutral-400 text-sm leading-relaxed">
-                    Ground Control is engineered for small enclosed biomes. Effective in residential closets, shoe racks, automotive interiors, sanitary spaces (bathrooms), and office storage units.
-                </p>
-            </div>
-
-            <div>
-                <h3 class="font-heading text-base text-gold mb-1">Operational Lifespan</h3>
-                <p class="font-body text-neutral-400 text-sm leading-relaxed">
-                    Each unit maintains peak efficacy for <strong class="text-white">2–4 weeks</strong> depending on atmospheric density and odor intensity.
-                </p>
-            </div>
-
-            <div>
-                <h3 class="font-heading text-base text-gold mb-1">Mechanism of Action</h3>
-                <p class="font-body text-neutral-400 text-sm leading-relaxed">
-                    Utilizes upcycled roasted coffee grounds to absorb volatile organic compounds (VOCs). Zero chemical emissions. 100% safe for biological entities (Humans & Pets).
-                </p>
-            </div>
-
-            <div>
-                <h3 class="font-heading text-base text-gold mb-1">Deployment Protocol</h3>
-                <p class="font-body text-neutral-400 text-sm leading-relaxed">
-                    1. Remove from seal.<br>
-                    2. Place in target quadrant.<br>
-                    3. Allow passive absorption.<br>
-                    4. Refresh unit after effective period expires.
-                </p>
-            </div>
-
-        </div>
-
-        <div class="p-6 border-t border-white/10 flex justify-between items-center bg-[#0f1014]">
-            <div class="text-[10px] text-neutral-600 font-mono">STATUS: PRE-LAUNCH</div>
-            <button onclick="closeModal()" class="text-xs text-gold border border-gold/30 px-6 py-2 hover:bg-gold hover:text-black transition uppercase tracking-widest">
-                Acknowledge
-            </button>
-        </div>
-
     </div>
-</div>
 
-<script>
-    const modal = document.getElementById('productModal');
-    const content = document.getElementById('modalContent');
+    <div id="shopModal" class="fixed inset-0 z-[110] hidden opacity-0 transition-opacity duration-500 flex items-center justify-center p-4">
+        <div onclick="closeShop()" class="absolute inset-0 bg-black/95 backdrop-blur-lg cursor-pointer"></div>
+        
+        <div class="relative z-10 w-full max-w-4xl bg-[#0f1014] border border-gold/30 shadow-2xl transform scale-95 transition-transform duration-500 rounded-none overflow-hidden flex flex-col md:flex-row" id="shopContent">
+            
+            <button onclick="closeShop()" class="md:hidden absolute top-4 right-4 text-white z-20">✕</button>
 
-    function openModal() {
-        modal.classList.remove('hidden');
-        setTimeout(() => {
-            modal.classList.remove('opacity-0');
-            content.classList.remove('scale-95');
-            content.classList.add('scale-100');
-        }, 10);
-    }
+            <div class="w-full md:w-1/2 bg-neutral-900 relative aspect-square md:aspect-auto">
+                <img src="IMG_2996.png" alt="Ground Control Pouch" class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-gold text-black text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Best Seller</div>
+            </div>
 
-    function closeModal() {
-        modal.classList.add('opacity-0');
-        content.classList.remove('scale-100');
-        content.classList.add('scale-95');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 500);
-    }
-</script>
+            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <div class="text-[10px] text-gold tracking-[0.3em] uppercase mb-2">The Classic Collection</div>
+                        <h2 class="font-heading text-3xl md:text-4xl text-white mb-2">Single Pouch</h2>
+                        <div class="font-mono text-xl text-neutral-400">₱250.00</div>
+                    </div>
+                    <button onclick="closeShop()" class="hidden md:block text-white/50 hover:text-gold transition text-xl">&times;</button>
+                </div>
+
+                <p class="font-body text-neutral-400 text-sm leading-relaxed mb-8 border-l border-gold/30 pl-4">
+                    The original Ground Control odor neutralizer. Hand-packed in organic burlap. Perfect for cars, shoe racks, and gym bags.
+                </p>
+
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="text-xs uppercase tracking-widest text-neutral-500">Qty</span>
+                    <div class="flex items-center border border-white/20">
+                        <button class="px-3 py-2 text-white hover:bg-white/10 transition" onclick="updateQty(-1)">-</button>
+                        <input type="number" id="qtyInput" value="1" class="w-12 bg-transparent text-center text-white text-sm border-none focus:ring-0" readonly>
+                        <button class="px-3 py-2 text-white hover:bg-white/10 transition" onclick="updateQty(1)">+</button>
+                    </div>
+                </div>
+
+                <button onclick="alert('Thank you! This is a demo. In a real site, this would go to Checkout.')" class="w-full bg-gold text-black py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition duration-300">
+                    Add to Cart
+                </button>
+                
+                <p class="text-center text-[10px] text-neutral-600 mt-4 tracking-widest uppercase">
+                    Secure Checkout • Ships within 24h
+                </p>
+            </div>
+        </div>
+    </div>
 
     <script>
-    function moveSlide(button, direction) {
-        // 1. Find the specific slider user clicked on
-        const container = button.closest('.slider-container');
-        const track = container.querySelector('.slider-track');
-        const slides = track.children;
-        const totalSlides = slides.length;
+        // --- TECH MODAL LOGIC ---
+        const modal = document.getElementById('productModal');
+        const content = document.getElementById('modalContent');
 
-        // 2. Get current position
-        let currentIndex = parseInt(track.dataset.index || 0);
+        function openModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
 
-        // 3. Calculate new position (Loop around if at end)
-        currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 500);
+        }
 
-        // 4. Slide it!
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-        // 5. Save new position
-        track.dataset.index = currentIndex;
-    }
-</script>
+        // --- SHOP MODAL LOGIC (New) ---
+        const shopModal = document.getElementById('shopModal');
+        const shopContent = document.getElementById('shopContent');
+
+        function openShop() {
+            shopModal.classList.remove('hidden');
+            setTimeout(() => {
+                shopModal.classList.remove('opacity-0');
+                shopContent.classList.remove('scale-95');
+                shopContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeShop() {
+            shopModal.classList.add('opacity-0');
+            shopContent.classList.remove('scale-100');
+            shopContent.classList.add('scale-95');
+            setTimeout(() => {
+                shopModal.classList.add('hidden');
+            }, 500);
+        }
+
+        function updateQty(change) {
+            const input = document.getElementById('qtyInput');
+            let val = parseInt(input.value);
+            val += change;
+            if(val < 1) val = 1;
+            input.value = val;
+        }
+
+        // --- SLIDESHOW LOGIC ---
+        function moveSlide(button, direction) {
+            const container = button.closest('.slider-container');
+            const track = container.querySelector('.slider-track');
+            const slides = track.children;
+            const totalSlides = slides.length;
+            let currentIndex = parseInt(track.dataset.index || 0);
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            track.dataset.index = currentIndex;
+        }
+    </script>
 </body>
 </html>
